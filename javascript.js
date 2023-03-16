@@ -2,7 +2,7 @@ var exec = 0;
 var operator1 = null;
 var operand = null;
 var operator2 = null;
-
+// this is test message
 function checkNumber(event) {
     var aCode = event.which ? event.which : event.keyCode;
     if (aCode > 31 && (aCode < 48 || aCode > 57)) return false;
