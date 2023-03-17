@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        var operator1 = null;
+        var operand = null;
+        var operator2 = null;
+
+        function evaluateInput() {
+            var str = document.getElementById('textID').value;
+            //console.log(typeof(str));
+            var strlen = str.length;
+            //console.log(strlen);
+            if (strlen == 0) {
+                alert("Please Enter some Value");
+
+
+            } else if (str[strlen - 1] == "+" || str[strlen - 1] == "-" || str[strlen - 1] == "*" || str[strlen - 1] == "/") {
+
+                alert("Incorrect Synatx");
+            }
+            var loop_break = false;
+            for (let i = 0; i < strlen; i++) {
+                if (str[i] == '!' || str[i] == '~' || str[i] == '@' || str[i] == '{') {
+                    alert("Invalid Input");
+                    loop_break = true;
+                    break;
+
+                }
+                if (loop_break) {
+
+                } else {
+                    var operator1 = null;
+                    var operand = null;
+                    var operator2 = null;
+
+                    function evaluateInput() {
+                        var operator1 = null;
+                        var str = document.getElementById('textID').value;
+                        //console.log(typeof(str));
+                        var strlen = str.length;
+                        //console.log(strlen);
+                        var inputstr = '';
+                        for (i = 0; i < strlen; i++) {
+                            if (str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/') {
+                                operand = str[i];
+                                if (operator1 == null) {
+                                    operator1 = parseInt(inputstr);
+                                    inputstr = '';
+
+
+                                    i = i + 1;
+                                    while (i != strlen && str[i] != '+' && str[i] != '-' && str[i] != '*') {
+                                        inputstr += str[i];
+                                        i = i + 1;
+
+                                    }
+                                    if (i == strlen) {
+                                        operator2 = parseInt(inputstr);
+                                        inputstr = '';
+
+
+
+                                    } else {
+                                        i = i - 1;
+                                        operator2 = parseInt(inputstr);
+                                        inputstr = '';
+
+
+                                    }
+                                    if (operand == '+') {
+
+                                        operator1 = operator1 + operator2;
+                                        operator2 = null;
+
+                                    } else if (operand == '-') {
+                                        operator1 = operator1 - operator2;
+                                        ooperator2 = null;
+
+
+                                    } else if (operand == '*') {
+
+                                        operator1 = operator1 * operator2;
+                                        operator2 = null;
+                                    } else {
+                                        operator1 = operator1 / operator2;
+                                    }
+
+
+
+
+
+                                } else {
+                                    i = i + 1;
+                                    while (i != strlen && str[i] != '+' && str[i] != '-' && str[i] != '*') {
+                                        inputstr += str[i];
+                                        i = i + 1;
+
+                                    }
+                                    if (i == strlen) {
+                                        operator2 = parseInt(inputstr);
+                                        inputstr = '';
+
+
+
+                                    } else {
+                                        i = i - 1;
+                                        operator2 = parseInt(inputstr);
+                                        inputstr = '';
+
+
+                                    }
+                                    if (operand == '+') {
+
+                                        operator1 = operator1 + operator2;
+                                        operator2 = null;
+
+                                    } else if (operand == '-') {
+                                        operator1 = operator1 - operator2;
+                                        ooperator2 = null;
+
+
+                                    } else if (operand == '*') {
+
+                                        operator1 = operator1 * operator2;
+                                        operator2 = null;
+                                    } else {
+                                        operator1 = operator1 / operator2;
+                                    }
+
+
+
+
+
+                                }
+
+
+
+
+
+                            } else {
+
+                                inputstr += str[i];
+                            }
+                        }
+                        console.log(operator1);
+
+
+
+
+
+
+                    }
+
+
+
+                }
+
+
+
+
+
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <input type="text" id="textID" placeholder="Type Something">
+    <input type="submit" id="submitID" onclick="evaluateInput()">
+
+</body>
+
+</html>
